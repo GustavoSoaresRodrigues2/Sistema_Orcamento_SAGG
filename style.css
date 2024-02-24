@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    
+    font-family: sans-serif, Verdana;
+    font-size: 15px;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: justify;
+
+    width: 100%;
+    height: 100%;
+}
+
+#yellow_line {
+    width: 100%;
+    height: 10px;
+    
+    background-color: yellow;
+
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+#border_div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    border: 1px solid;
+
+
+    .list {
+        padding-top: 10px;
+        color: red;
+    }
+
+    .data {
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+#info_veic {
+    display: grid;
+    grid-template-areas: 
+        "l_nome i_nome l_placa i_placa"
+        "l_modelo i_modelo l_renavam i_renavam"
+    ;
+    justify-items: start;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+    padding: 15px 8px;
+}
+
+.l_solict {
+    grid-area: l_nome;
+}
+
+.i_solict {
+    grid-area: i_nome;
+}
+
+.l_placa {
+    grid-area: l_placa;
+}
+
+.i_placa {
+    grid-area: i_placa;
+}
+
+.l_renavam {
+    grid-area: l_renavam;
+}
+
+.i_renavam {
+    grid-area: i_renavam;
+}
+
+.l_modelo_veic {
+    grid-area: l_modelo;
+}
+
+.i_modelo_veic {
+    grid-area: i_modelo;
+}
+
+#nome_e_preco {
+    display: flex;
+
+    padding: 15px;
+}
+
+.descr {
+    width: 100%;
+}
+
+.um {
+    text-align: justify;
+}
+
+.dois {
+    text-align: end;
+}

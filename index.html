@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Orçamento</title>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>        
+
+</head>
+<body>
+    <div id="border_div">
+        <label for="lista" class="list">
+            ORÇAMENTO DE 
+            <input list="techs" id="lista" style="color:red">
+        </label>
+        <p class="data">
+            Informações abaixo conforme pesquisa realizada em <time date="" id="current-time"></time>.
+        </p>
+        <div id="yellow_line"></div>
+        <div id="info_veic">
+            <label for="solict" class="l_solict">
+                Solicitante:
+            </label>
+                <input type="text" name="solict" id="solict" class="i_solict">
+            <label for="placa" class="l_placa">
+                Placa:
+            </label>
+                <input type="text" name="placa" id="placa" class="i_placa">
+            <label for="renavam" class="l_renavam">
+                Renavam:
+            </label>
+                <input type="text" name="renavam" id="renavam" class="i_renavam">
+            <label for="modelo_veic" class="l_modelo_veic">
+                Modelo do veículo:
+            </label>
+                <input type="text" name="modelo_veic" id="modelo_veic" class="i_modelo_veic">
+        </div>
+        <div id="yellow_line"></div>
+        <div id="tipos_servicos">
+            <div id="nome_e_preco">
+                <input type="text" name="descr" class="descr um">
+                <input type="text" name="valor" id="valor" onkeyup="mascara(this)" class="descr dois">
+
+            </div>
+        </div>
+
+    </div>
+
+    <datalist id="techs">
+        <option value="TRANSFERENCIA"></option>
+        <option value="LICENCIAMENTO"></option>
+        <option value="2° VIA DUT"></option>
+        <option value=""></option>
+    </datalist>
+</body>
+<script>
+
+    var data = new Date();
+    var dia = String(data. getDate()). padStart(2, '0');
+    var mes = String(data. getMonth() + 1). padStart(2, '0');
+    var ano = data. getFullYear();
+    dataAtual = dia + '/' + mes + '/' + ano;
+    var timeElement = document.getElementById("current-time");
+    timeElement.textContent = dataAtual;
+    timeElement.setAttribute("datetime", dateTimeString);
+
+    function mascara(valor) {
+        var valorAlterado = valor.value;
+        valorAlterado = valorAlterado.replace(/\D/g, ""); // Remove todos os não dígitos
+        valorAlterado = valorAlterado.replace(/(\d+)(\d{2})$/, "$1,$2"); // Adiciona a parte de centavos
+        valorAlterado = valorAlterado.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."); // Adiciona pontos a cada três dígitos
+        valorAlterado = "R$" + valorAlterado;
+        valor.value = valorAlterado;
+    }
+
+</script>
+</html>
